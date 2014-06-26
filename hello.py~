@@ -1,0 +1,19 @@
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+
+MyApp(Widget):
+	pass
+
+class TestApp(App):
+	
+    def build(self):
+		#def callback(instance):
+			#print ('The button')
+
+		btn = Button(text='Hello World')
+		parent = Widget()
+		#btn.bind(on_press = callback)
+        return MyApp()
+
+TestApp().run()

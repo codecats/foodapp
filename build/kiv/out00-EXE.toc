@@ -1,0 +1,9 @@
+('/home/s/py/kivy/build/kiv/kiv',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1400471051)

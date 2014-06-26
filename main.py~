@@ -1,0 +1,17 @@
+from kivy.app import App
+from kivy.uix.widget import Widget
+from kivy.uix.button import Button
+
+class PongGame(Widget):
+	pass
+	
+class PongApp(App):
+	def build(self):
+		def callme(instance):
+			print 'tomasz'
+		pong = Button(text='Hello World')
+		pong.bind(on_press = callme)
+		return pong
+		
+if __name__ == '__main__':
+	PongApp().run()

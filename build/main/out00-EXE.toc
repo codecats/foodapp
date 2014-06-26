@@ -1,0 +1,9 @@
+('/home/s/py/kivy/build/main/main',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1400445335)
