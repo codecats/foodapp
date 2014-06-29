@@ -1,0 +1,19 @@
+#:kivy 1.0.9
+
+<DetailWidget>:
+    Label:
+        text: "Ho ho ho"
+
+<AccidentsWidget>:
+    layout: main_layout
+    BoxLayout:
+        id: main_layout
+        orientation: "vertical"
+        Label:
+            text: "When I was born I was so surprised; I didn't speak for a year and a half."
+            text_size: self.width-20, self.height-20
+            valign: 'middle'
+            halign: 'center'
+
+        Button:
+            text: "Options"

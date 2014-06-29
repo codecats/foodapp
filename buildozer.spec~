@@ -41,7 +41,7 @@ requirements = kivy
 presplash.filename = %(source.dir)s/data/download.jpg
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/data/download.jpg
+icon.filename = %(source.dir)s/data/download.png
 
 # (str) Supported orientation (one of landscape, portrait or all)
 orientation = all
@@ -177,3 +177,4 @@ log_level = 2
 # Then, invoke the command line with the "demo" profile:
 #
 #     buildozer --profile demo android debug
+

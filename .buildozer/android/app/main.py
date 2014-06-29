@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.factory import Factory
 from kivy.network.urlrequest import UrlRequest
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
@@ -7,6 +8,8 @@ from kivy.uix.button import Button
 from module import utils
 
 from kivy.config import Config
+from module.accidents.main import AccidentsWidget
+
 Config.set('kivy', 'window_icon', 'data/download.png')
 
 class FoodWidget(BoxLayout):
@@ -15,21 +18,10 @@ class FoodWidget(BoxLayout):
 
     def __init__(self, **kwargs):
         super(FoodWidget, self).__init__(**kwargs)
-        def callme(instance):
-            #test module imported here
-            utils.Util()
-            def on_resp(request, response):
-                print response
-                for key, val in enumerate(response):
-                    self.layout.add_widget(Button(text=str(val)))
-                instance.text = str(response[u'validate'])
-            req = UrlRequest(
-                        'http://validate.jsontest.com/?json=%7B%22key%22:%22value%22%7D',
-                        on_resp, method='post')
-        pong = Button(text='Tomasz App')
-        pong.bind(on_press=callme)
+        Factory.register('AccidentsWidget', module='food.module.accidents.main')
 
-        self.layout.add_widget(pong)
+        self.layout.add_widget(Factory.AccidentsWidget())
+
 
 
 class FoodApp(App):
