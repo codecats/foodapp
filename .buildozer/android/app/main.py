@@ -25,6 +25,9 @@ class FoodWidget(BoxLayout):
 
 
 class FoodApp(App):
+    def on_pause(self):
+        return True
+    
     def build(self):
 
         return FoodWidget()
