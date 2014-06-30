@@ -7,27 +7,29 @@ import os
 Builder.load_file(os.path.dirname(os.path.realpath(__file__)) + '/accidents.kv')
 
 class DetailWidget(BoxLayout):
-    pass
+    label_first = ObjectProperty(None)
+
+    def __init__(self, accident_title=None, **kwargs):
+        super(DetailWidget, self).__init__(**kwargs)
+        self.label_first.text = accident_title
 
 class AccidentsWidget(BoxLayout):
     layout = ObjectProperty(None)
+    accident_btn = ObjectProperty(None)
+
+    def callme(self, instance):
+        instance.text = 'aa'
+        self.remove_widget(self.layout)
+        self.add_widget(DetailWidget(instance.text))
 
     def __init__(self, **kwargs):
         super(AccidentsWidget, self).__init__(**kwargs)
 
-        def callme(instance):
-            instance.text = 'aa'
-            self.remove_widget(self.layout)
-            self.add_widget(DetailWidget())
-
         def on_resp(request, response):
-            print response
             for key, val in response.items():
                 self.layout.add_widget(Button(text=str(val)))
 
         req = UrlRequest(
                     'http://echo.jsontest.com/gry/one/filmy/duo',
                     on_resp, method='post')
-        pong = Button(text='Accident')
-        pong.bind(on_press=callme)
-        self.layout.add_widget(pong)
+

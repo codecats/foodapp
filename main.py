@@ -13,13 +13,11 @@ from module.accidents.main import AccidentsWidget
 Config.set('kivy', 'window_icon', 'data/download.png')
 
 class FoodWidget(BoxLayout):
-
     layout = ObjectProperty(None)
 
     def __init__(self, **kwargs):
         super(FoodWidget, self).__init__(**kwargs)
         Factory.register('AccidentsWidget', module='food.module.accidents.main')
-
         self.layout.add_widget(Factory.AccidentsWidget())
 
 
@@ -27,9 +25,8 @@ class FoodWidget(BoxLayout):
 class FoodApp(App):
     def on_pause(self):
         return True
-    
-    def build(self):
 
+    def build(self):
         return FoodWidget()
 
 
