@@ -1,7 +1,16 @@
 #:kivy 1.0.9
 
 <FoodWidget>:
+    orientation: "vertical"
+
     layout: main_layout
+
     BoxLayout:
         id: main_layout
         orientation: "vertical"
+
+    Button:
+        text: "Back"
+        size_hint:(1, .15)
+        on_press: root.go_back()
+

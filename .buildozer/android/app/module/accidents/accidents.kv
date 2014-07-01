@@ -1,14 +1,31 @@
 #:kivy 1.0.9
 
 <DetailWidget>:
-    Label:
-        text: "Ho ho ho"
-
-<AccidentsWidget>:
     layout: main_layout
+    label_first: label_first
     BoxLayout:
         id: main_layout
         orientation: "vertical"
+        Label:
+            id: label_first
+            text: "Ho ho ho"
+            color: (1.0, 10.0, 0.0, 1.0)
+        Label:
+            text: "Aho"
+        Label:
+            text: "Eho"
+        Button:
+            text: "Opt"
+
+<AccidentsWidget>:
+
+    layout: main_layout
+    accident_btn: accident_btn
+
+    BoxLayout:
+        id: main_layout
+        orientation: "vertical"
+
         Label:
             text: "When I was born I was so surprised; I didn't speak for a year and a half."
             text_size: self.width-20, self.height-20
@@ -17,3 +34,11 @@
 
         Button:
             text: "Options"
+            background_color: (1.0, 0.0, 0.0, 1.0)
+
+        Button:
+            text: "Accident"
+            id: accident_btn
+            color: (10.0, 50.0, 10.0, 15.0)
+            background_color: (1.0, 244.0, 0.0, 1.0)
+            on_press: root.callme(self)
