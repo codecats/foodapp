@@ -24,7 +24,6 @@ class FoodWidget(BoxLayout):
             class_type = type(last)
             self.layout.add_widget(class_type())
 
-
     def __init__(self, **kwargs):
         super(FoodWidget, self).__init__(**kwargs)
         Factory.register('AccidentsWidget', module='food.module.accidents.main')
@@ -41,7 +40,6 @@ class FoodApp(App):
         if platform() == 'android':
             import android
             android.map_key(android.KEYCODE_BACK, 1001)
-
         win = Window
         win.bind(on_keyboard=self.my_key_handler)
 
